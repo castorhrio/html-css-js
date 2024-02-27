@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>打字训练</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="stats">
+        <p>时间：<span id="timer">0 s</span></p>
+        <p>错误：<span id="mistakes">0 &nbsp;&nbsp;</span></p>
+      </div>
+
+      <div
+        id="quote"
+        onmousedown="return false"
+        onselectstart="return false"
+      ></div>
+
+      <textarea row="3" id="quote_input" placeholder="在此输入..."></textarea>
+
+      <button id="stop-test" onclick="displayResult()">结束测试</button>
+      <button id="start-test" onclick="startTest()">开始测试</button>
+
+      <div class="result">
+        <h3>测试结果</h3>
+        <div class="wrapper">
+          <p>正确率：<span id="accuracy"></span></p>
+          <p>打字速率：<span id="wpm"></span></p>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
