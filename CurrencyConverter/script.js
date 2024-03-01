@@ -22,7 +22,13 @@ for (let i = 0; i < dropList.length; i++) {
   });
 }
 
-window.addEventListener("load", (e) => {
+const exchangeIcon = document.querySelector(".drop-list .icon");
+exchangeIcon.addEventListener("click", () => {
+  let tempCode = fromCurrency.value;
+  fromCurrency.value = toCurrency.value;
+  toCurrency.value = tempCode;
+  loadFlag(fromCurrency);
+  loadFlag(toCurrency);
   getExchangeRate();
 });
 
@@ -49,8 +55,10 @@ function getExchangeRate() {
     .then((result) => {
       let exchangeRate = result.conversion_rates[toCurrency.value];
       let totalExchangeRate = (amountVal * exchangeRate).toFixed(4);
-
       exchangeRateTxt.innerText = `${amountVal} ${fromCurrency.value} = ${totalExchangeRate} ${toCurrency.value}`;
+    })
+    .catch(() => {
+      exchangeRateTxt.innerText = "汇率换算失败了...";
     });
 }
 
@@ -62,4 +70,10 @@ function loadFlag(element) {
       imgTag.src = `https://flagsapi.com/${flag_list[code]}/flat/64.png`;
     }
   }
+
+  getExchangeRate();
 }
+
+window.addEventListener("load", (e) => {
+  getExchangeRate();
+});
