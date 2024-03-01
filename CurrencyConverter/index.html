@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>汇率转换器</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>汇率转换器</header>
+      <form action="#">
+        <div class="amount">
+          <p>金额</p>
+          <input type="text" value="1" />
+        </div>
+        <div class="drop-list">
+          <div class="from">
+            <p>从</p>
+            <div class="select-box">
+              <img src="https://flagsapi.com/CN/flat/64.png" alt="" />
+              <select></select>
+            </div>
+          </div>
+
+          <div class="icon"><i class="fas fa-exchange-alt"></i></div>
+
+          <div class="to">
+            <p>到</p>
+            <div class="select-box">
+              <img src="https://flagsapi.com/US/flat/64.png" alt="" />
+              <select></select>
+            </div>
+          </div>
+        </div>
+
+        <div class="exchange-rate"></div>
+        <button>查看汇率</button>
+      </form>
+    </div>
+
+    <script src="api-key.js"></script>
+    <script src="country-list.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
