@@ -109,6 +109,11 @@ form .exchange-rate{
     margin:20px 0 30px;
 }
 
+.exchange-rate span{
+    font-weight: 600;
+    color:rgb(46, 60, 87);
+}
+
 form button{
     height: 52px;
     color:#fff;

@@ -55,7 +55,9 @@ function getExchangeRate() {
     .then((result) => {
       let exchangeRate = result.conversion_rates[toCurrency.value];
       let totalExchangeRate = (amountVal * exchangeRate).toFixed(4);
-      exchangeRateTxt.innerText = `${amountVal} ${fromCurrency.value} = ${totalExchangeRate} ${toCurrency.value}`;
+      let fromCurrencyDesc = getCurrencyDescription(fromCurrency.value);
+      let toCurrencyDesc = getCurrencyDescription(toCurrency.value);
+      exchangeRateTxt.innerHTML = `<span>${amountVal} ${fromCurrencyDesc} = ${totalExchangeRate} ${toCurrencyDesc}</span>`;
     })
     .catch(() => {
       exchangeRateTxt.innerText = "汇率换算失败了...";
@@ -72,6 +74,14 @@ function loadFlag(element) {
   }
 
   getExchangeRate();
+}
+
+function getCurrencyDescription(flag) {
+  for (code in country_list) {
+    if (code == flag) {
+      return country_list[code];
+    }
+  }
 }
 
 window.addEventListener("load", (e) => {
